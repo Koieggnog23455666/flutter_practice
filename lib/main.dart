@@ -13,15 +13,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      color: Colors.white,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-
+  // primaryColor: Colors.redAccent,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
 
         useMaterial3: true,
       ),
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       darkTheme: ThemeData(brightness: Brightness.dark),
       initialRoute: "/WelcomePage",
       routes: {//routes to many pages
