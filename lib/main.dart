@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iphonepractice/Pages/WelcomePage.dart';
+import 'package:iphonepractice/Pages/LoginPage.dart';
 import 'package:iphonepractice/Pages/homepage.dart';
 
 void main() {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      color: Colors.white,
+      // color: Colors.black,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -24,10 +24,10 @@ class MyApp extends StatelessWidget {
       ),
       themeMode: ThemeMode.light,
       darkTheme: ThemeData(brightness: Brightness.dark),
-      initialRoute: "/WelcomePage",
+      initialRoute: "/LoginPage",
       routes: {//routes to many pages
         '/':(context)=> MyHomePage(title: 'practice'),//default routes sign "/"
-        '/WelcomePage':(context)=> WelcomePage(),
+        '/LoginPage':(context)=> LoginPage(),
       },
     );
   }

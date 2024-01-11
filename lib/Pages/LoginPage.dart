@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:iphonepractice/Pages/homepage.dart';
 
-class WelcomePage extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
-  State<WelcomePage> createState() => _WelcomePageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _WelcomePageState extends State<WelcomePage> {
+class _LoginPageState extends State<LoginPage> {
   bool ObsecureText=true;
+  bool button=false;
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +56,31 @@ class _WelcomePageState extends State<WelcomePage> {
                 ),SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(onPressed: (){}, child: Text('Login',style: GoogleFonts.abel(textStyle: TextStyle(color: Colors.yellowAccent,),)),style: ButtonStyle(
-                  backgroundColor:MaterialStateProperty.all(Colors.blueGrey),
-                ),
+                AnimatedContainer(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(button?30:12)
+                  ),
+                  width: button?50:250,
+                  duration: Duration(seconds: 1),
+                  child: ElevatedButton(onPressed: () async {
+                    setState(() {
+                      button=true;
+                    });
+                   await Future.delayed(Duration(seconds: 1));
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage(title: 'Home')));
+                  }, child:button?FaIcon(Icons.done_outline,color: Colors.white,): Text('Login',style: GoogleFonts.poppins(textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
+                    style: ElevatedButton.styleFrom(
+                      // primary: Colors.deepPurple,
+                      padding: EdgeInsets.all(0),
+                      fixedSize: Size(250, 50),
+                      shadowColor: Colors.deepPurple,
+                      elevation: 5,
+                      backgroundColor: Colors.deepPurple,
 
+                    ),
+                    
+
+                  ),
                 )
               ],
             ),
