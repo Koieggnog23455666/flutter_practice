@@ -29,7 +29,8 @@ validateToHome (BuildContext context)async{
     return Form(
       key: _formKey,
       child: Scaffold(
-        backgroundColor: Colors.white,
+
+        // backgroundColor: Colors.white,
         body: Column(
           children: [
           Image.asset('assets/images/undraw login.png',height: 300,),

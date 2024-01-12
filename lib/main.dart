@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iphonepractice/Pages/LoginPage.dart';
 import 'package:iphonepractice/Pages/homepage.dart';
+import 'package:iphonepractice/widgets/Theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,15 +17,10 @@ class MyApp extends StatelessWidget {
       // color: Colors.black,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-  // primaryColor: Colors.redAccent,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      theme: theme().lightTheme(context),
 
-        useMaterial3: true,
-      ),
-      themeMode: ThemeMode.light,
-      darkTheme: ThemeData(brightness: Brightness.dark),
-      initialRoute: "/LoginPage",
+      // darkTheme: theme().darkTheme(context),
+      initialRoute: "/",
       routes: {//routes to many pages
         '/':(context)=> MyHomePage(title: 'practice'),//default routes sign "/"
         '/LoginPage':(context)=> LoginPage(),
