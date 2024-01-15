@@ -8,7 +8,6 @@ class drawerWidget extends StatelessWidget{
    return Drawer(
   child: ListView(
     padding: EdgeInsets.all(0),
-    
     children: const [
       
       DrawerHeader(child: UserAccountsDrawerHeader(
@@ -20,10 +19,13 @@ class drawerWidget extends StatelessWidget{
       ),
       padding: EdgeInsets.all(0),),
 
-      ListTile(
-        hoverColor: Colors.black,
-        leading: Icon(CupertinoIcons.home),
-        title: Text('Home',style: TextStyle(fontFamily: 'Poppins',),
+      InkWell(
+        child: ListTile(
+          hoverColor: Colors.black,
+          leading: Icon(CupertinoIcons.home),
+        
+          title: Text('Home',style: TextStyle(fontFamily: 'Poppins',),
+          ),
         ),
       ) ,ListTile(
         leading: Icon(CupertinoIcons.profile_circled),
@@ -32,6 +34,10 @@ class drawerWidget extends StatelessWidget{
       ) ,ListTile(
         leading: Icon(CupertinoIcons.mail_solid),
         title: Text('Email',style: TextStyle(fontFamily: 'Poppins',),
+        ),
+      ) ,ListTile(
+        leading: Icon(Icons.logout),
+        title: Text('Sign Out',style: TextStyle(fontFamily: 'Poppins',),
         ),
       ) ,
 

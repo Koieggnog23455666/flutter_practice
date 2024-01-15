@@ -31,6 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+   
     return MaterialApp(
       theme: theme().darkTheme(context),
       debugShowCheckedModeBanner: false,
@@ -42,11 +43,21 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body:Padding(
           padding: const EdgeInsets.all(8.0),
-          child:Catalog.Products!=null && Catalog.Products.isNotEmpty? ListView.builder(itemCount: Catalog.Products.length,itemBuilder: (context,index){
-            return ItemWidget(
-              item: Catalog.Products[index],
+          child:Catalog.Products!=null && Catalog.Products.isNotEmpty?
+          GridView.builder(gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
+               crossAxisCount: 2,mainAxisSpacing: 5,
+            crossAxisSpacing: 5
+          ) ,
+              itemBuilder: (context,index){
+            final item = Catalog.Products[index];
+            return Card(
+              child: GridTile(child: Image.network(item.image),footer: Text(item.name),),
             );
-          }):Center(child: CircularProgressIndicator(),)
+          },
+          itemCount: Catalog.Products.length,
+
+          ):Center(child: CircularProgressIndicator(),)
+
         ),
         drawer: drawerWidget(),
         // This trailing comma makes auto-formatting nicer for build methods.
