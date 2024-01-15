@@ -1,10 +1,11 @@
 import 'dart:convert';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:iphonepractice/widgets/Theme.dart';
 import '../utils/catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
+import '../widgets/HomeWidgets/CatalogHeader.dart';
+import '../widgets/HomeWidgets/CatalogList.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -48,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
           CatalogList().expand()
          else
            Center(
-          child: CircularProgressIndicator(color: Colors.tealAccent,),)
+          child: CircularProgressIndicator(color: Colors.teal,),).expand()
 
 
           ],
@@ -58,74 +59,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class CatalogList extends StatefulWidget {
-  const CatalogList({super.key});
 
-  @override
-  State<CatalogList> createState() => _CatalogListState();
-}
 
-class _CatalogListState extends State<CatalogList> {
-  @override
-  Widget build(BuildContext context) {
 
-    return ListView.builder(
-        shrinkWrap:true,itemBuilder: (context,index){
-      final catalog= Catalog.Products[index];
-      return CatalogItem( catalog: catalog,);
-    },itemCount: Catalog.Products.length
-    );
-  }
-}
-class CatalogItem extends StatelessWidget {
-  const CatalogItem({Key? key, required this.catalog}):assert(catalog!=null), super(key: key);
-  final Items catalog;
 
-  @override
-  Widget build(BuildContext context) {
-    return VxBox(
-      child: Row(
-        children: [
-          ClipOval(child: Image.network(catalog.image,).box.color(Colors.white).rounded.make().p16().h32(context).w32(context)),
-          Expanded(child: Column(
-
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [catalog.name.text.bold.lg.make(),catalog.desc.text.textStyle(context.captionStyle).make(),
-              10.heightBox,
-              ButtonBar(
-
-                buttonPadding: EdgeInsets.only(left: 0),
-                alignment: MainAxisAlignment.spaceBetween,
-              children: [
-                "\₹${catalog.price}".text.bold.make(),
-                ElevatedButton(onPressed: (){},style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(theme.Purpleish),
-
-                ), child: 'Buy'.text.bold.color(Colors.black).make())
-              ],
-            ).pOnly(right: 8)
-            ],
-          ))
-        ],
-      )
-    ).color(theme.Darkish).rounded.square(150).make().py12();
-  }
-}
-
-class CatalogHeader extends StatelessWidget {
-  const CatalogHeader({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        'Catalog App'.text.xl5.bold.color(theme.Purpleish).make(),
-        'Trending Products'.text.xl.color(theme.Purpleish).make(),
-      ],
-    );
-  }
-}
 
