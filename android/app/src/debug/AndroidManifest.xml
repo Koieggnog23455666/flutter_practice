@@ -4,4 +4,14 @@
          to allow setting breakpoints, to provide hot reload, etc.
     -->
     <uses-permission android:name="android.permission.INTERNET"/>
+   <application>
+       <activity android:name=".MainActivity">
+           <intent-filter>
+               <action android:name="android.intent.action.MAIN">
+               </action>
+               <category android:name="android.intent.category.LAUNCHER">
+               </category>
+           </intent-filter>
+       </activity>
+   </application>
 </manifest>

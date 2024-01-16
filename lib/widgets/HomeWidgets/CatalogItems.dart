@@ -13,7 +13,7 @@ class CatalogItem extends StatelessWidget {
     return VxBox(
         child: Row(
           children: [
-            Hero(tag: Key(catalog.id.toString()),child: ClipOval(child: Image.network(catalog.image,).box.color(Colors.white).rounded.make().p16().h32(context).w32(context))),
+            Hero(tag: Key(catalog.id.toString()),child: ClipRRect(child: Image.network(catalog.image,).box.rounded.color(context.canvasColor).make().p16().h32(context).w32(context))),
             Expanded(child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,13 +27,13 @@ class CatalogItem extends StatelessWidget {
                     ElevatedButton(onPressed: (){},style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(theme.Purpleish),
 
-                    ), child: 'Buy'.text.bold.color(Colors.black).make())
+                    ), child: 'Add to Cart'.text.bold.color(Colors.black).make())
                   ],
                 ).pOnly(right: 8)
               ],
             ))
           ],
         )
-    ).color(theme.Darkish).rounded.square(150).make().py12();
+    ).color(context.cardColor).rounded.square(150).make().py12();
   }
 }
